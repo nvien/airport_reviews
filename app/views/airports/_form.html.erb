@@ -1,0 +1,28 @@
+<%= form_for(@airport) do |f| %>
+  <% if @airport.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@airport.errors.count, "error") %> prohibited this airport from being saved:</h2>
+      <ul>
+      <% @airport.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :IATA %><br>
+    <%= f.text_field :IATA, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-info btn-lg" %>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Top 40 Busiest US Airports by passenger numbers for 2012</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>IATA</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @airports.each do |airport| %>
+      <tr>
+        <td><%= airport.name %></td>
+        <td><%= airport.city %></td>
+        <td><%= airport.IATA %></td>
+        <td><%= link_to 'Show', airport, class: "btn btn-link" %></td>
+        <td><%= link_to 'Edit', edit_airport_path(airport), class: "btn btn-link" %></td>
+        <td><%= link_to 'Destroy', airport, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Airport', new_airport_path, class: "btn btn-link" %>
