@@ -10,6 +10,7 @@ class AirportsController < ApplicationController
   # GET /airports/1
   # GET /airports/1.json
   def show
+    @reviews = Review.where(airport_id: @airport.id)
   end
 
   # GET /airports/new

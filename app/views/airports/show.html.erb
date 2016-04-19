@@ -1,20 +1,35 @@
-<%= image_tag @airport.image_url %>
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag @airport.image_url %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @airport.name %>
-</p>
+    <h2>
+      <%= @airport.name %>
+    </h2>
 
-<p>
-  <strong>City:</strong>
-  <%= @airport.city %>
-</p>
+    <p>
+      <strong>City:</strong>
+      <%= @airport.city %>
+    </p>
 
-<p>
-  <strong>IATA:</strong>
-  <%= @airport.IATA %>
-</p>
+    <p>
+      <strong>IATA:</strong>
+      <%= @airport.IATA %>
+    </p>
 
-<%= link_to "Add a Review", new_airport_review_path(@airport), class: "btn btn-info btn-lg" %><br>
+    <%= link_to "Add a Review", new_airport_review_path(@airport), class: "btn btn-info btn-lg" %>
+  </div>
+
+  <div class="col-md-8">
+    <% if @reviews.blank? %>
+      <h3>No Reviews Yet. Be the first to write one!</h3>
+    <% else %>
+      <% @reviews.each do |review| %>
+        <p><%= review.rating %></p>
+        <p><%= review.description %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 <%= link_to 'Edit', edit_airport_path(@airport), class: "btn btn-link" %> |
 <%= link_to 'Back', airports_path, class: "btn btn-link" %>
