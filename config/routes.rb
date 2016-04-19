@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root "airports#index"
-  resources :airports
-  resources :reviews, except: [:index, :show]
-
+  resources :airports do
+    resources :reviews, except: [:index, :show]
+  end
+  
   get 'pages/about'
   get 'pages/contact'
 
