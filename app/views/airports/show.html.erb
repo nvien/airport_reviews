@@ -15,5 +15,6 @@
   <%= @airport.IATA %>
 </p>
 
+<%= link_to "Add a Review", new_airport_review_path(@airport), class: "btn btn-info btn-lg" %><br>
 <%= link_to 'Edit', edit_airport_path(@airport), class: "btn btn-link" %> |
 <%= link_to 'Back', airports_path, class: "btn btn-link" %>
