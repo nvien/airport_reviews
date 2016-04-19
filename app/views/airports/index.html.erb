@@ -16,10 +16,9 @@
   <tbody>
     <% @airports.each do |airport| %>
       <tr>
-        <td><%= airport.name %></td>
+        <td><%= link_to airport.name, airport_path(airport) %></td>
         <td><%= airport.city %></td>
         <td><%= airport.IATA %></td>
-        <td><%= link_to 'Show', airport, class: "btn btn-link" %></td>
         <td><%= link_to 'Edit', edit_airport_path(airport), class: "btn btn-link" %></td>
         <td><%= link_to 'Destroy', airport, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
       </tr>

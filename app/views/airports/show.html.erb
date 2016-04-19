@@ -24,7 +24,7 @@
       <h3>No Reviews Yet. Be the first to write one!</h3>
     <% else %>
       <% @reviews.each do |review| %>
-        <p><%= review.rating %></p>
+        <div class="star-rating" data-score= <%= review.rating %> ></div>
         <p><%= review.description %></p>
       <% end %>
     <% end %>
@@ -33,3 +33,13 @@
 
 <%= link_to 'Edit', edit_airport_path(@airport), class: "btn btn-link" %> |
 <%= link_to 'Back', airports_path, class: "btn btn-link" %>
+
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3.amazonaws.com/airport-reviews/stars',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>
