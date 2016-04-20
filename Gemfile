@@ -18,6 +18,7 @@ gem "fog-aws"
 gem "figaro"
 gem "mini_magick"
 gem 'devise'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'pry-rails'
