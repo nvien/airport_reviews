@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
   before_action :set_airport
   before_action :authenticate_user!
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /reviews/new
   def new
@@ -49,7 +50,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to airport_path(@airport), notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -61,6 +62,12 @@ class ReviewsController < ApplicationController
 
     def set_airport
       @airport = Airport.find(params[:airport_id])
+    end
+
+    def check_user
+      unless (@review.user == current_user) || (current_user.admin?)
+        redirect_to root_path, alert: "This review cannot be changed or deleted because it belongs to someone else"
+      end
     end
 
     def review_params

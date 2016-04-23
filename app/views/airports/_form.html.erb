@@ -1,7 +1,8 @@
 <%= form_for(@airport, :html => { multipart: true }) do |f| %>
   <% if @airport.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@airport.errors.count, "error") %> prohibited this airport from being saved:</h2>
+    <div id="error_explanation" class="alert alert-warning alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4><%= pluralize(@airport.errors.count, "error") %> prohibited this airport from being saved:</h4>
       <ul>
       <% @airport.errors.full_messages.each do |message| %>
         <li><%= message %></li>

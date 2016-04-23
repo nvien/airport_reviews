@@ -1,6 +1,7 @@
 class AirportsController < ApplicationController
   before_action :set_airport, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_user, except: [:index, :show]
   # GET /airports
   # GET /airports.json
   def index
@@ -71,6 +72,12 @@ class AirportsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_airport
       @airport = Airport.find(params[:id])
+    end
+
+    def check_user
+      unless current_user.admin?
+        redirect_to root_path, alert: "This action is restricted to admin only"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
