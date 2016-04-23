@@ -13,6 +13,12 @@ page.css("tr th a[href]").each do |line|
   airport_names << line.text
 end
 
+# airport_websites = []
+# page.css("tr th a[href]").each do |line|
+#   airport_websites << line["href"]
+# end
+
+
 #details array includes other elements besides city names
 details = []
 page.css("tr td").each do |line|
