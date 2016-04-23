@@ -6,6 +6,8 @@
       <%= @airport.name %>
     </h2>
 
+    <div class="star-rating" data-score= <%= @avg_rating %> ></div>
+    <p><%= "#{@reviews.length} reviews" %></p>
     <p>
       <strong>City:</strong>
       <%= @airport.city %>
@@ -20,8 +22,8 @@
       <% if @airport.website.blank? %>
         <strong>Website:</strong> Not Available
       <% else %>
-      <strong>Website:</strong>
-      <%= @airport.website %>
+        <strong>Website:</strong>
+        <a href="http://www.flychicago.com/Ohare/OhareHomepage.shtm"><%= @airport.website %></a>
       <% end %>
     </p>
 
@@ -32,10 +34,18 @@
     <% if @reviews.blank? %>
       <h3>No Reviews Yet. Be the first to write one!</h3>
     <% else %>
-      <% @reviews.each do |review| %>
-        <div class="star-rating" data-score= <%= review.rating %> ></div>
-        <p><%= review.description %></p>
-      <% end %>
+      <table class="table">
+        <tbody>
+          <% @reviews.each do |review| %>
+            <tr>
+              <td>
+                <div class="star-rating" data-score= <%= review.rating %> ></div>
+                <p><%= h(review.description).gsub(/\n/, '<br/>').html_safe %></p>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     <% end %>
   </div>
 </div>

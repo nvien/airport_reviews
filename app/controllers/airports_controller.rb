@@ -10,7 +10,12 @@ class AirportsController < ApplicationController
   # GET /airports/1
   # GET /airports/1.json
   def show
-    @reviews = Review.where(airport_id: @airport.id)
+    @reviews = Review.where(airport_id: @airport.id).order("created_at DESC")
+    if @reviews.blank?
+      @avg_rating = 0
+    else
+      @avg_rating = @reviews.average(:rating).round(2)
+    end
   end
 
   # GET /airports/new
@@ -70,6 +75,6 @@ class AirportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def airport_params
-      params.require(:airport).permit(:name, :city, :IATA, :image)
+      params.require(:airport).permit(:name, :city, :IATA, :image, :website)
     end
 end
