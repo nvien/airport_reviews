@@ -20,6 +20,7 @@ gem "mini_magick"
 gem 'devise'
 gem 'dotenv-rails'
 gem 'searchkick'
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   gem 'pry-rails'
