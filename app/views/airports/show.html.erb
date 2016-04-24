@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-5">
     <%= image_tag @airport.image_url %>
 
     <h2>
@@ -23,14 +23,26 @@
         <strong>Website:</strong> Not Available
       <% else %>
         <strong>Website:</strong>
-        <a href="http://www.flychicago.com/Ohare/OhareHomepage.shtm"><%= @airport.website %></a>
+        <br>
+        <a id="website" href="http://www.flychicago.com/Ohare/OhareHomepage.shtm"><%= @airport.website %></a>
       <% end %>
     </p>
 
     <%= link_to "Add a Review", new_airport_review_path(@airport), class: "btn btn-info btn-lg" %>
+
+    <br>
+    <br>
+
+    <iframe
+      width="240"
+      height="230"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCaW9lJ26cwuwS4yEac_ZboyiID-F_3LLE
+        &q=<%= @airport.name %>&zoom=14" allowfullscreen>
+      </iframe>
   </div>
 
-  <div class="col-md-8">
+  <div class="col-md-7">
     <% if @reviews.blank? %>
       <h3>No Reviews Yet. Be the first to write one!</h3>
     <% else %>
