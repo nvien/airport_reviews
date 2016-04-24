@@ -1,9 +1,17 @@
 class AirportsController < ApplicationController
   before_action :set_airport, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :check_user, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index,:search, :show]
+  before_action :check_user, except: [:index, :search, :show]
   # GET /airports
   # GET /airports.json
+  def search
+    if params[:search].present?
+      @airports = Airport.search(params[:search])
+    else
+      @airports = Airport.all
+    end
+  end
+
   def index
     @airports = Airport.all
   end

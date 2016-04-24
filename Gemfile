@@ -19,6 +19,7 @@ gem "figaro"
 gem "mini_magick"
 gem 'devise'
 gem 'dotenv-rails'
+gem 'searchkick'
 
 group :development, :test do
   gem 'pry-rails'
