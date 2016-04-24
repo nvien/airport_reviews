@@ -27,7 +27,6 @@ class AirportsController < ApplicationController
     end
   end
 
-  # GET /airports/new
   def new
     @airport = Airport.new
   end
