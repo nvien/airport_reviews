@@ -14,25 +14,32 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li><%= link_to "About", pages_about_path %></li>
-      <li><%= link_to "Contact", pages_contact_path %></li>
+      <li><%= link_to t('about'), pages_about_path %></li>
+      <li><%= link_to t('contact'), pages_contact_path %></li>
     </ul>
     <!-- replace default search field came with bootstaps with custom one that goes with searchkick -->
     <%= form_tag search_airports_path, method: :get, class: "navbar-form navbar-left" do %>
       <p>
-        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Let's find your airport" %>
-        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t('lets_find_your_airport') %>
+        <%= submit_tag t('search'), name: nil, class: "btn btn-default" %>
       </p>
     <% end %>
     <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Language <b class="caret"></b></a>
+         <ul class="dropdown-menu">
+           <li><%= link_to t('english'), root_path(locale: 'en') %></li>
+           <li><%= link_to t('vietnamese'), root_path(locale: 'vi') %></li>
+         </ul>
+       </li>
       <% if user_signed_in? %>
-        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to t('edit_profile'), edit_user_registration_path %></li>
+        <li><%= link_to t('sign_out'), destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-        <li><%= link_to "Sign in", new_user_session_path %></li>
+        <li><%= link_to t('sign_up'), new_user_registration_path %></li>
+        <li><%= link_to t('sign_in'), new_user_session_path %></li>
       <% end %>
     </ul>
-  </div><!-- /.navbar-collapse -->
-</div><!-- /.container-fluid -->
+  </div>
+</div>
 </nav>

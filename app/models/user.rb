@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :reviews, dependent: :destroy #To delete all reviews associated with a particular user when that user account is deleted
-  # def admin?
-  #  role == "admin"
-  # end
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end

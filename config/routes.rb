@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root "airports#index"
-  resources :airports do
-    collection do
-      get 'search'
-    end
-    resources :reviews, except: [:index, :show]
-  end
 
-  get 'pages/about'
-  get 'pages/contact'
+  scope "(:locale)", locale: /en|vi/ do
+    devise_for :users
+    root "airports#index"
+    resources :airports do
+      collection do
+        get 'search'
+      end
+      resources :reviews, except: [:index, :show]
+    end
+
+    get 'pages/about'
+    get 'pages/contact'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

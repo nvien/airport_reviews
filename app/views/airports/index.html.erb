@@ -1,14 +1,14 @@
 <div class="jumbotron">
-  <h2>Welcome to IntelliFly</h2>
-  <h4>Explore and leave reviews for your fellow travellers</h4>
+  <!-- replace text with translation -->
+  <%= t('jumbotron_title_html') %>
+  <%= t('jumbotron_subtitle_html') %>
 </div>
-
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>City</th>
-      <th>IATA</th>
+      <%= t('name_html') %>
+      <%= t('city_html') %>
+      <%= t('iata_html') %>
       <% if user_signed_in? && current_user.admin? %>
         <th colspan="2"></th>
       <% end %>

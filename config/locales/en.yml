@@ -20,4 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  about: About
+  contact: Contact
+  lets_find_your_airport: Let's find your airport
+  search: Search
+  english: English
+  vietnamese: Vietnamese
+  edit_profile: Edit Profile
+  sign_out: Sign Out
+  sign_up: Sign Up
+  sign_in: Sign In
+  jumbotron_title_html: <h2>Welcome to IntelliFly</h2>
+  jumbotron_subtitle_html: <h4>Explore and leave reviews for your fellow travellers</h4>
+  name_html: <th>Name</th>
+  city_html: <th>City</th>
+  iata_html: <th>IATA</th>
+  about_page_greeting_html: <h1>Welcome to my airport review site!</h1><br>
+  about_page_content_html: <p>This site allows users to search, view and submit reviews for the top 40 US busiest airports <br> by passenger numbers originally listed on the <a href="https://www.world-airport-codes.com/us-top-40-airports.html">World Airport Code</a> website.</p>
