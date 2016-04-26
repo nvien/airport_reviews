@@ -15,15 +15,15 @@ feature 'search' do
       city: "Dallas-Fort Worth",
       IATA: "DFW"
     )
+    Airport.reindex
   end
 
-  xscenario 'user successfully searches for AN airport' do
+  scenario 'user successfully searches for AN airport' do
     visit root_path
     expect(page).to have_content 'Denver International'
     expect(page).to have_content 'Dallas Fort Worth International'
     fill_in "search", with: "Denver"
     click_button 'Search'
-    save_and_open_page
     expect(page).to have_content 'Denver International'
     expect(page).to_not have_content 'Dallas Fort Worth International'
   end

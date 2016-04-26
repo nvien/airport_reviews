@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 feature 'User creates a review' do
-  let!(:user) do
+  let!(:user1) do
     User.create(
+      first_name: "Bill",
+      last_name: "Mirror",
       email: "abcd@email.com",
-      password: "123123123"
+      password: "123123123",
+      admin: true
     )
   end
 
@@ -20,7 +23,7 @@ feature 'User creates a review' do
     fill_in "Password", with: "123123123"
     click_button "Log in"
 
-    visit airport_path(@airport.id)
+    visit airport_path("en",@airport.id)
   end
 
   scenario "user can fill in form and see their review posted" do

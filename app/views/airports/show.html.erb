@@ -7,7 +7,7 @@
     </h2>
 
     <div class="star-rating" data-score= <%= @avg_rating %> ></div>
-    <p><%= "#{@reviews.length} reviews" %></p>
+    <p><%= "#{@all_reviews.length} reviews" %></p>
     <p>
       <strong>City:</strong>
       <%= @airport.city %>
@@ -65,7 +65,7 @@
                 <p><%= h(review.description).gsub(/\n/, '<br/>').html_safe %></p>
                 <% if user_signed_in? %>
                   <% if (review.user == current_user) || (current_user.admin?) %>
-                    <%= link_to "Edit", edit_airport_review_path(@airport, review) %>
+                    <%= link_to "Edit", edit_airport_review_path(@airport, review), id: "edit-link"%>
                     <%= link_to "Delete", airport_review_path(@airport, review), method: :delete %>
                   <% end %>
                 <% end %>

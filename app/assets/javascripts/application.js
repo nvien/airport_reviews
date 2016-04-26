@@ -14,3 +14,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+// function loadGF() {
+//   var feed = "http://smartraveller.gov.au/advice/index.rss";
+//   new GFdynamicFeedControl(feed, "feedControl");
+// }
+//
+// google.load("feeds", "1");
+// google.setOnLoadCallback(loadGF, true);
+//
+// document.onreadystatechange = function() {
+//   if (document.readyState == 'interactive' || document.readyState == 'complete') {
+//     loadGF();
+//   }
+// }

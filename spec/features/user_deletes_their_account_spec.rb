@@ -44,7 +44,7 @@ feature "user deletes their account permanently" do
   end
 
   scenario 'his/her review is deleted when the account is deleted' do
-    visit airport_path(airport1)
+    visit airport_path("en", airport1)
 
     expect(page).to_not have_content "I love this airport"
     expect(page).to have_content "No Reviews Yet. Be the first to write one!"

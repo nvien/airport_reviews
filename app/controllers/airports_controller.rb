@@ -19,11 +19,12 @@ class AirportsController < ApplicationController
   # GET /airports/1
   # GET /airports/1.json
   def show
+    @all_reviews = Review.where(airport_id: @airport.id)
     @reviews = Review.where(airport_id: @airport.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
-    if @reviews.blank?
+    if @all_reviews.blank?
       @avg_rating = 0
     else
-      @avg_rating = @reviews.average(:rating)
+      @avg_rating = @all_reviews.average(:rating)
     end
   end
 
