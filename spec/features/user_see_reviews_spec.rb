@@ -3,6 +3,8 @@ require 'rails_helper'
 feature 'user see reviews' do
   let!(:user1) do
     User.create(
+      first_name: "Bill",
+      last_name: "Mirror",
       email: "abcd@email.com",
       password: "123123123"
     )
@@ -10,6 +12,8 @@ feature 'user see reviews' do
 
   let!(:user2) do
     User.create(
+      first_name: "Manny",
+      last_name: "Moore",
       email: "asdf@email.com",
       password: "123123123"
     )

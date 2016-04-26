@@ -1,9 +1,6 @@
 require 'rails_helper'
 
-feature "edit account", %{
-  As an authenticated user
-  I want to edit information of my account
-} do
+feature "user edits their account information" do
 
 # ACCEPTANCE CRITERIA
 # - I must specify valid email address

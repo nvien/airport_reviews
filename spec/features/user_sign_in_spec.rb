@@ -1,10 +1,6 @@
 require 'rails_helper'
 
-feature "sign up", %{
-  As an unauthenticed user
-  I want to sign up
-  so that I can post reviews for airports
-} do
+feature "new user can sign up to post reviews" do
 
   # ACCEPTANCE CRITERIA
   # - I must specify valid email address

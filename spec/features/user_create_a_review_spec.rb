@@ -43,14 +43,4 @@ feature 'User creates a review' do
   expect(page).to have_content "Rating is not a number"
   expect(page).to have_content "Rating must be between 1-5"
   end
-
-
-  # scenario "User cannot create more than one review" do
-  #   fill_in "Rating", with: "5"
-  #   fill_in "Description", with: "Man, I love Denver so much!"
-  #   click_button "Create Review"
-  #
-  #   expect(page).to_not have_content "Man, I love Denver so much!"
-  #   expect(page).to have_no_css('.btn btn-info btn-lg')
-  # end
 end
