@@ -15,6 +15,8 @@ feature "sign up", %{
 
   let!(:user) do
     User.create(
+      first_name: "Bill",
+      last_name: "Mirror",
       email: "abcd@email.com",
       password: "123123123"
     )
@@ -22,6 +24,8 @@ feature "sign up", %{
 
   scenario 'specifiying valid and required information' do
     visit new_user_registration_path
+    fill_in 'First name', with: "Kobe"
+    fill_in 'Last name', with: "Puppy"
     fill_in 'Email', with: "kobe@travel.com"
     fill_in 'Password', with: "password"
     fill_in 'Password confirmation', with: "password"
@@ -32,11 +36,12 @@ feature "sign up", %{
 
   scenario 'user enters the email that is already existing' do
     visit new_user_registration_path
+    fill_in 'First name', with: "Kobe"
+    fill_in 'Last name', with: "Puppy"
     fill_in 'Email', with: "abcd@email.com"
     fill_in 'Password', with: "password"
     fill_in 'Password confirmation', with: "password"
     click_button 'Sign up'
-
     expect(page).to have_content("1 error prohibited this user from
      being saved:")
     expect(page).to have_content("Email has already been taken")
@@ -44,19 +49,25 @@ feature "sign up", %{
 
   scenario 'user does not provide any information' do
     visit new_user_registration_path
+    fill_in 'First name', with: ""
+    fill_in 'Last name', with: ""
     fill_in 'Email', with: ""
     fill_in 'Password', with: ""
     fill_in 'Password confirmation', with: ""
     click_button 'Sign up'
 
-    expect(page).to have_content("2 errors prohibited this user from
+    expect(page).to have_content("4 errors prohibited this user from
      being saved:")
     expect(page).to have_content("Email can't be blank")
     expect(page).to have_content("Password can't be blank")
+    expect(page).to have_content("First name can't be blank")
+    expect(page).to have_content("Last name can't be blank")
   end
 
   scenario 'user provides invalid information' do
     visit new_user_registration_path
+    fill_in 'First name', with: "Kobe"
+    fill_in 'Last name', with: "Puppy"
     fill_in 'Email', with: "asdf@asdf"
     fill_in 'Password', with: "asdf"
     fill_in 'Password confirmation', with: "asdf"

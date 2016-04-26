@@ -43,7 +43,7 @@ feature 'user see reviews' do
 
   scenario 'user visits airport show page and sees list of reviews' do
     visit airport_path(airport1)
-    
+
     expect(page).to have_content "I love this airport"
     expect(page).to have_content "I dont like laying over"
   end

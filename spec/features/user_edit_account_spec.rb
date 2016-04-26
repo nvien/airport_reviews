@@ -13,6 +13,8 @@ feature "edit account", %{
 
   let!(:user) do
     User.create(
+      first_name: "Bill",
+      last_name: "Mirror",
       email: "abcd@email.com",
       password: "123123123"
     )
