@@ -15,7 +15,8 @@ vi:
   city_html: <th>Thành Phố</th>
   iata_html: <th>Mã IATA</th>
   about_page_greeting_html: <h1>Chào mừng tới IntelliFly</h1><br>
-  about_page_content_html: <p>Trang web cho phép người dùng tìm kiếm và chia sẻ ý kiến về 40 sân bay bận rộn nhất Hoa Kỳ <br> <br> căn cứ vào số lượng hành khách được niêm yết trên trang <a href="https://www.world-airport-codes.com/us-top-40-airports.html">World Airport Code</a></p>
+  about_page_content_html: <ul><li>Trang web cho phép người dùng tìm kiếm và chia sẻ ý kiến về 40 sân bay bận rộn nhất Hoa Kỳ, căn cứ vào số lượng hành khách được niêm yết trên trang <a href="https://www.world-airport-codes.com/us-top-40-airports.html">World Airport Code</a></li><br><li>Các sân bay bận rộn nhất được xếp thứ tùy thuộc vào số lượng hành khách bay đến hoặc từ mỗi sân bay</li><br><li>Hành khách có thể chỉ bắt chuyến bay kết nối từ sân bay đến đích khác.</li><br><li>Số hành khách dữ liệu có liên quan đến những con số năm Sân bay Hội đồng Quốc tế ước tính cho năm 2012.</li></ul>
+  # about_page_content_html: <p>Trang web cho phép người dùng tìm kiếm và chia sẻ ý kiến về 40 sân bay bận rộn nhất Hoa Kỳ <br> <br> căn cứ vào số lượng hành khách được niêm yết trên trang <a href="https://www.world-airport-codes.com/us-top-40-airports.html">World Airport Code</a></p>
   activerecord:
     errors:
       messages:

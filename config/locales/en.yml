@@ -36,4 +36,4 @@ en:
   city_html: <th>City</th>
   iata_html: <th>IATA</th>
   about_page_greeting_html: <h1>Welcome to my airport review site!</h1><br>
-  about_page_content_html: <p>This site allows users to search, view and submit reviews for the top 40 US busiest airports <br> by passenger numbers originally listed on the <a href="https://www.world-airport-codes.com/us-top-40-airports.html">World Airport Code</a> website.</p>
+  about_page_content_html: <ul><li>This site allows users to search, view and submit reviews for the top 40 US busiest airports by passenger numbers originally listed on the <a href="https://www.world-airport-codes.com/us-top-40-airports.html">World Airport Code</a></li><br><li>The busiest airports are ranked depending on the number of passengers flying to or from each airport</li><br><li>Passenger may only be catching connecting flights from an airport to another destination.</li><br><li>Passenger Number data is related to the Airport Council International estimated full year figures for 2012.</li></ul>
