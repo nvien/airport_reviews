@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'airport_listings.csv'))
+csv = CSV.parse(csv_text, :headers => true)
+  csv.each do |row|
+    t = Airport.new
+    t.name = row['Airport Name']
+    t.city = row['City']
+    t.IATA = row['IATA']
+    t.save
+  end
