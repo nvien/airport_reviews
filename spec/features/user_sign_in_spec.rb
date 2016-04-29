@@ -25,7 +25,7 @@ feature "new user can sign up to post reviews" do
     fill_in 'Email', with: "kobe@travel.com"
     fill_in 'Password', with: "password"
     fill_in 'Password confirmation', with: "password"
-    click_button 'Sign up'
+    click_button 'Submit'
 
     expect(page).to have_content("Welcome! You have signed up successfully.")
   end
@@ -37,7 +37,7 @@ feature "new user can sign up to post reviews" do
     fill_in 'Email', with: "abcd@email.com"
     fill_in 'Password', with: "password"
     fill_in 'Password confirmation', with: "password"
-    click_button 'Sign up'
+    click_button 'Submit'
     expect(page).to have_content("1 error prohibited this user from
      being saved:")
     expect(page).to have_content("Email has already been taken")
@@ -50,7 +50,7 @@ feature "new user can sign up to post reviews" do
     fill_in 'Email', with: ""
     fill_in 'Password', with: ""
     fill_in 'Password confirmation', with: ""
-    click_button 'Sign up'
+    click_button 'Submit'
 
     expect(page).to have_content("4 errors prohibited this user from
      being saved:")
@@ -67,7 +67,7 @@ feature "new user can sign up to post reviews" do
     fill_in 'Email', with: "asdf@asdf"
     fill_in 'Password', with: "asdf"
     fill_in 'Password confirmation', with: "asdf"
-    click_button 'Sign up'
+    click_button 'Submit'
 
     expect(page).to have_content("2 errors prohibited this user from
      being saved:")
